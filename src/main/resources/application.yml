@@ -20,6 +20,6 @@ spring:
     property-naming-strategy: SNAKE_CASE
 
 easy-jwt:
-  access-exp: ${ACCESS_EXP:814000000}
+  access-exp: ${ACCESS_EXP:81400}
   refresh-exp: ${REFRESH_EXP:0}
   secret: ${JWT_SECRET}

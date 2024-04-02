@@ -8,6 +8,7 @@ import com.gil.easyjwt.jwt.JwtTokenProvider
 import com.gil.easyjwt.user.CurrentUserService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.http.HttpMethod
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
@@ -32,13 +33,17 @@ class SecurityConfig(
                 it.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             }
             .authorizeHttpRequests {
-                it.anyRequest().permitAll()
+                it
+                    // category
+                    .requestMatchers(HttpMethod.POST, "categories/user").authenticated()
+
+                    // user
+                    .requestMatchers(HttpMethod.POST, "/users").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/users/login").permitAll()
+                    .anyRequest().authenticated()
             }
             .addFilterBefore(JwtFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter::class.java)
-            .addFilterBefore(
-                ExceptionFilter(objectMapper = objectMapper),
-                JwtFilter::class.java,
-            )
+            .addFilterBefore(ExceptionFilter(objectMapper), JwtFilter::class.java)
             .build()
     }
 

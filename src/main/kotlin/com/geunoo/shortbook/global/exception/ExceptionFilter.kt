@@ -1,6 +1,8 @@
 package com.geunoo.shortbook.global.exception
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.gil.easyjwt.exception.EasyJwtException
+import com.gil.easyjwt.exception.ExpiredTokenException
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
@@ -29,6 +31,9 @@ class ExceptionFilter(
                     e.printStackTrace()
                     writeErrorResponse(response, InternalServerErrorException())
                 }
+            }
+            if (e is EasyJwtException) {
+                writeErrorResponse(response, ForbiddenException(e.message!!))
             }
         }
     }
