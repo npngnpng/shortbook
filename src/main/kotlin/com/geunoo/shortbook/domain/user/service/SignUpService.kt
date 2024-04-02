@@ -6,13 +6,14 @@ import com.geunoo.shortbook.domain.user.entity.repository.UserRepository
 import com.geunoo.shortbook.global.exception.ConflictException
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class SignUpService(
     private val userRepository: UserRepository,
     private val passwordEncoder: PasswordEncoder,
 ) {
-
+    @Transactional
     fun execute(request: SignUpRequest) {
         if (userRepository.existsByEmail(request.email)) {
             throw ConflictException("User Already Exists")
