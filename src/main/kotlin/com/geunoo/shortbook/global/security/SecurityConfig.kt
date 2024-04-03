@@ -35,7 +35,8 @@ class SecurityConfig(
             .authorizeHttpRequests {
                 it
                     // category
-                    .requestMatchers(HttpMethod.POST, "categories/user").authenticated()
+                    .requestMatchers(HttpMethod.POST, "/categories/user").authenticated()
+                    .requestMatchers(HttpMethod.GET, "/categories").permitAll()
 
                     // user
                     .requestMatchers(HttpMethod.POST, "/users").permitAll()
