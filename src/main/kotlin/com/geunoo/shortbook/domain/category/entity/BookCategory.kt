@@ -15,7 +15,7 @@ import java.util.UUID
 class BookCategory(
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    val id: UUID,
+    val id: UUID = UUID(0, 0),
 
     @field:NotNull
     @ManyToOne(fetch = FetchType.LAZY)
