@@ -23,3 +23,7 @@ easy-jwt:
   access-exp: ${ACCESS_EXP:81400}
   refresh-exp: ${REFRESH_EXP:0}
   secret: ${JWT_SECRET}
+
+api:
+  client-id: ${API_ID}
+  client-secret: ${API_SECRET}
