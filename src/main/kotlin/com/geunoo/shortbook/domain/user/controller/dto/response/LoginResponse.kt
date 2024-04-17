@@ -1,5 +1,5 @@
 package com.geunoo.shortbook.domain.user.controller.dto.response
 
-class LoginResponse(
+data class LoginResponse(
     val accessToken: String,
 )

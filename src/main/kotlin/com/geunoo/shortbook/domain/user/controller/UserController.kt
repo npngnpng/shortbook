@@ -30,6 +30,6 @@ class UserController(
 
     @PostMapping("/login")
     fun login(
-        @RequestBody @Valid request: LoginRequest
+        @RequestBody @Valid request: LoginRequest,
     ) : LoginResponse = loginService.execute(request)
 }
