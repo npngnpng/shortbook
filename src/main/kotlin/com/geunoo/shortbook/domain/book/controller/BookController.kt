@@ -25,7 +25,7 @@ class BookController(
     fun queryBooks(@RequestParam("name") name: String) = queryBooksService.execute(name)
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("{isbn}")
+    @PostMapping("/{isbn}")
     fun shareBook(
         @PathVariable isbn: String,
         @RequestBody @Valid request: CreateBookRequest,
