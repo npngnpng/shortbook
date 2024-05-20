@@ -32,6 +32,10 @@ class Book(
     @Column(columnDefinition = "VARCHAR(4000)")
     val content: String,
 
+    @field:NotNull
+    @Column(columnDefinition = "VARCHAR(30)")
+    val author: String,
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     val user: User,

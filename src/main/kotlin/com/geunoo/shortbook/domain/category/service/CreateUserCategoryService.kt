@@ -5,14 +5,12 @@ import com.geunoo.shortbook.domain.category.entity.UserCategory
 import com.geunoo.shortbook.domain.category.entity.repository.CategoryRepository
 import com.geunoo.shortbook.domain.category.entity.repository.UserCategoryRepository
 import com.geunoo.shortbook.domain.user.entity.User
-import com.geunoo.shortbook.domain.user.entity.repository.UserRepository
 import com.gil.easyjwt.user.CurrentUserService
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
 class CreateUserCategoryService(
-    private val userRepository: UserRepository,
     private val categoryRepository: CategoryRepository,
     private val userCategoryRepository: UserCategoryRepository,
     private val currentUserService: CurrentUserService<User>,

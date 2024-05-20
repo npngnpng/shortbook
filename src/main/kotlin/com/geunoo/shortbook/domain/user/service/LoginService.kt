@@ -6,6 +6,7 @@ import com.geunoo.shortbook.domain.user.entity.repository.UserRepository
 import com.geunoo.shortbook.global.exception.NotFoundException
 import com.geunoo.shortbook.global.exception.UnauthorizedException
 import com.gil.easyjwt.jwt.JwtTokenProvider
+import com.gil.easyjwt.jwt.TokenType
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 
@@ -23,6 +24,9 @@ class LoginService(
             throw UnauthorizedException("Invalid Password")
         }
 
-        return LoginResponse(jwtTokenProvider.generateAccessToken(user.id.toString()))
+        return LoginResponse(
+            jwtTokenProvider.generateAccessToken(user.id.toString()),
+            jwtTokenProvider.getExpiredAt(TokenType.ACCESS),
+        )
     }
 }
