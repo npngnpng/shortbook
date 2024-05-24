@@ -38,6 +38,7 @@ dependencies {
     kapt("jakarta.persistence:jakarta.persistence-api")
 
     implementation("com.github.geunoo:easy-jwt:0.1.4")
+    implementation("javax.xml.bind:jaxb-api:2.3.0")
 
     implementation("io.jsonwebtoken:jjwt-api:0.12.5")
     runtimeOnly("io.jsonwebtoken:jjwt-impl:0.12.5")
@@ -45,6 +46,7 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
+
 }
 
 dependencyManagement {
