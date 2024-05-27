@@ -40,6 +40,8 @@ dependencies {
     implementation("com.github.geunoo:easy-jwt:0.1.4")
     implementation("javax.xml.bind:jaxb-api:2.3.0")
 
+    implementation("io.github.kilmajster:ngrok-spring-boot-starter:0.9.0")
+
     implementation("io.jsonwebtoken:jjwt-api:0.12.5")
     runtimeOnly("io.jsonwebtoken:jjwt-impl:0.12.5")
     runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.12.5")

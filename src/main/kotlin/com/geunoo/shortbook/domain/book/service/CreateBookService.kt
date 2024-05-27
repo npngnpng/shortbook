@@ -38,7 +38,7 @@ class CreateBookService(
                 name = bookInfo.title,
                 bookImageUrl = bookInfo.image,
                 link = bookInfo.link,
-                content = "${bookInfo.description}\n 한줄평 \n ${request.review}",
+                content = "한줄평 \n ${request.review}\n\n\n ${bookInfo.description}\n",
                 user = user,
                 author = bookInfo.author
             )

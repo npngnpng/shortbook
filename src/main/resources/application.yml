@@ -24,6 +24,11 @@ easy-jwt:
   refresh-exp: ${REFRESH_EXP:0}
   secret: ${JWT_SECRET}
 
+ngrok:
+  enabled: true
+  auth-token: ${NGROK_AUTH_TOKEN}
+  command: http --domain=basically-dominant-hornet.ngrok-free.app 8080
+
 api:
   client-id: ${API_ID}
   client-secret: ${API_SECRET}

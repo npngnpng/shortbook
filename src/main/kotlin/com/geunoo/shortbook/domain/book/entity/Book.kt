@@ -19,7 +19,7 @@ class Book(
     val id: UUID = UUID(0, 0),
 
     @field:NotNull
-    @Column(columnDefinition = "VARCHAR(30)")
+    @Column(columnDefinition = "VARCHAR(300)")
     val name: String,
 
     @Column(columnDefinition = "VARCHAR(255)")
